@@ -1,0 +1,90 @@
+{
+  "name": "ipfs-message-port-protocol",
+  "version": "0.11.3",
+  "description": "IPFS client/server protocol over message port",
+  "keywords": [
+    "ipfs"
+  ],
+  "homepage": "https://github.com/ipfs/js-ipfs/tree/master/packages/ipfs-message-port-protocol#readme",
+  "bugs": "https://github.com/ipfs/js-ipfs/issues",
+  "license": "(Apache-2.0 OR MIT)",
+  "type": "module",
+  "main": "src/index.js",
+  "types": "dist/src/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "*": [
+        "*",
+        "dist/*",
+        "dist/src/*",
+        "dist/src/*/index"
+      ],
+      "src/*": [
+        "*",
+        "dist/*",
+        "dist/src/*",
+        "dist/src/*/index"
+      ]
+    }
+  },
+  "files": [
+    "dist",
+    "src",
+    "!**/*.tsbuildinfo"
+  ],
+  "eslintConfig": {
+    "extends": "ipfs",
+    "parserOptions": {
+      "sourceType": "module"
+    }
+  },
+  "exports": {
+    ".": {
+      "import": "./src/index.js"
+    },
+    "./block": {
+      "import": "./src/block.js"
+    },
+    "./cid": {
+      "import": "./src/cid.js"
+    },
+    "./core": {
+      "import": "./src/core.js"
+    },
+    "./dag": {
+      "import": "./src/dag.js"
+    },
+    "./error": {
+      "import": "./src/error.js"
+    }
+  },
+  "browser": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ipfs/js-ipfs.git"
+  },
+  "scripts": {
+    "build": "aegir build",
+    "test": "aegir test",
+    "test:node": "aegir test -t node --cov",
+    "test:chrome": "aegir test -t browser --cov",
+    "test:chrome-webworker": "aegir test -t webworker",
+    "test:firefox": "aegir test -t browser -- --browser firefox",
+    "test:firefox-webworker": "aegir test -t webworker -- --browser firefox",
+    "lint": "aegir lint",
+    "clean": "aegir clean",
+    "dep-check": "aegir dep-check -i ipfs-core-types"
+  },
+  "dependencies": {
+    "ipfs-core-types": "^0.10.3",
+    "multiformats": "^9.5.1"
+  },
+  "devDependencies": {
+    "aegir": "^37.0.11",
+    "uint8arrays": "^3.0.0"
+  },
+  "engines": {
+    "node": ">=15.0.0",
+    "npm": ">=3.0.0"
+  }
+}

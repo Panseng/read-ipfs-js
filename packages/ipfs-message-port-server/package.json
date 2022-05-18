@@ -1,0 +1,81 @@
+{
+  "name": "ipfs-message-port-server",
+  "version": "0.11.3",
+  "description": "IPFS server library for exposing IPFS node over message port",
+  "keywords": [
+    "ipfs",
+    "message-port",
+    "worker"
+  ],
+  "homepage": "https://github.com/ipfs/js-ipfs/tree/master/packages/ipfs-message-port-server#readme",
+  "bugs": "https://github.com/ipfs/js-ipfs/issues",
+  "license": "(Apache-2.0 OR MIT)",
+  "type": "module",
+  "main": "src/index.js",
+  "types": "dist/src/index.d.ts",
+  "files": [
+    "dist",
+    "src",
+    "!**/*.tsbuildinfo"
+  ],
+  "exports": {
+    ".": {
+      "import": "./src/index.js"
+    },
+    "./block": {
+      "import": "./src/block.js"
+    },
+    "./core": {
+      "import": "./src/core.js"
+    },
+    "./dag": {
+      "import": "./src/dag.js"
+    },
+    "./files": {
+      "import": "./src/files.js"
+    },
+    "./server": {
+      "import": "./src/server.js"
+    },
+    "./service": {
+      "import": "./src/service.js"
+    }
+  },
+  "eslintConfig": {
+    "extends": "ipfs",
+    "parserOptions": {
+      "sourceType": "module"
+    }
+  },
+  "browser": {
+    "worker_threads": false
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ipfs/js-ipfs.git"
+  },
+  "scripts": {
+    "build": "aegir build",
+    "test": "aegir test",
+    "test:chrome": "aegir test -t browser --cov",
+    "test:chrome-webworker": "aegir test -t webworker",
+    "test:firefox": "aegir test -t browser -- --browser firefox",
+    "test:firefox-webworker": "aegir test -t webworker -- --browser firefox",
+    "lint": "aegir lint",
+    "clean": "aegir clean",
+    "dep-check": "aegir dep-check -i ipfs-core-types"
+  },
+  "dependencies": {
+    "ipfs-core-types": "^0.10.3",
+    "ipfs-message-port-protocol": "^0.11.3",
+    "it-all": "^1.0.4"
+  },
+  "devDependencies": {
+    "aegir": "^37.0.11",
+    "multiformats": "^9.5.1"
+  },
+  "engines": {
+    "node": ">=15.0.0",
+    "npm": ">=3.0.0"
+  }
+}

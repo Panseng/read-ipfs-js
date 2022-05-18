@@ -1,0 +1,21 @@
+{
+  "extends": "aegir/src/config/tsconfig.aegir.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "emitDeclarationOnly": true
+  },
+  "include": [
+    "src"
+  ],
+  "references": [
+    {
+      "path": "../ipfs-message-port-protocol"
+    },
+    {
+      "path": "../ipfs-message-port-server"
+    },
+    {
+      "path": "../ipfs-core-types"
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "name": "ipfs-message-port-client",
+  "version": "0.11.3",
+  "description": "IPFS client library for accessing IPFS node over message port",
+  "keywords": [
+    "ipfs",
+    "message-port",
+    "worker"
+  ],
+  "homepage": "https://github.com/ipfs/js-ipfs/tree/master/packages/ipfs-message-port-client#readme",
+  "bugs": "https://github.com/ipfs/js-ipfs/issues",
+  "license": "(Apache-2.0 OR MIT)",
+  "type": "module",
+  "main": "src/index.js",
+  "types": "dist/src/index.d.ts",
+  "files": [
+    "dist",
+    "src",
+    "!**/*.tsbuildinfo"
+  ],
+  "exports": {
+    ".": {
+      "import": "./src/index.js"
+    }
+  },
+  "eslintConfig": {
+    "extends": "ipfs",
+    "parserOptions": {
+      "sourceType": "module"
+    }
+  },
+  "browser": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ipfs/js-ipfs.git"
+  },
+  "scripts": {
+    "build": "aegir build",
+    "test:interface:message-port-client": "aegir test -t browser --bail -f ./test/interface-message-port-client.js",
+    "lint": "aegir lint",
+    "clean": "aegir clean",
+    "dep-check": "aegir dep-check -i ipfs-core -i ipfs-core-types -i esbuild"
+  },
+  "dependencies": {
+    "browser-readablestream-to-it": "^1.0.1",
+    "err-code": "^3.0.1",
+    "ipfs-core-types": "^0.10.3",
+    "ipfs-message-port-protocol": "^0.11.3",
+    "ipfs-unixfs": "^6.0.3",
+    "it-peekable": "^1.0.2",
+    "multiformats": "^9.5.1"
+  },
+  "devDependencies": {
+    "aegir": "^37.0.11",
+    "interface-ipfs-core": "^0.154.2",
+    "ipfs-core": "^0.14.3",
+    "ipfs-message-port-server": "^0.11.2"
+  },
+  "engines": {
+    "node": ">=15.0.0",
+    "npm": ">=3.0.0"
+  }
+}

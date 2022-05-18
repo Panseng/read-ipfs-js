@@ -1,0 +1,26 @@
+{
+  "extends": "aegir/src/config/tsconfig.aegir.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "emitDeclarationOnly": true
+  },
+  "include": [
+    "src",
+    "test",
+    "package.json"
+  ],
+  "references": [
+    {
+      "path": "../ipfs-core-config"
+    },
+    {
+      "path": "../ipfs-core-types"
+    },
+    {
+      "path": "../ipfs-core-utils"
+    },
+    {
+      "path": "../ipfs-http-client"
+    }
+  ]
+}

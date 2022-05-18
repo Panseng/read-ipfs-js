@@ -1,0 +1,48 @@
+{
+  "name": "ipfs-client",
+  "version": "0.7.9",
+  "description": "A client library to talk to local IPFS daemons",
+  "keywords": [
+    "ipfs"
+  ],
+  "homepage": "https://github.com/ipfs/js-ipfs/tree/master/packages/ipfs-client#readme",
+  "bugs": "https://github.com/ipfs/js-ipfs/issues",
+  "license": "(Apache-2.0 OR MIT)",
+  "type": "module",
+  "main": "src/index.js",
+  "types": "dist/src/index.d.ts",
+  "files": [
+    "dist",
+    "src",
+    "!**/*.tsbuildinfo"
+  ],
+  "eslintConfig": {
+    "extends": "ipfs",
+    "parserOptions": {
+      "sourceType": "module"
+    }
+  },
+  "exports": {
+    ".": {
+      "import": "./src/index.js"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ipfs/js-ipfs.git"
+  },
+  "scripts": {
+    "build": "aegir build",
+    "lint": "aegir lint",
+    "clean": "aegir clean",
+    "dep-check": "aegir dep-check -i aegir"
+  },
+  "dependencies": {
+    "ipfs-grpc-client": "^0.9.4",
+    "ipfs-http-client": "^56.0.3",
+    "merge-options": "^3.0.4"
+  },
+  "devDependencies": {
+    "aegir": "^37.0.11"
+  }
+}
