@@ -1,11 +1,10 @@
-# [中文文档](./README_ZH.md)
 <p align="center">
   <a href="https://js.ipfs.io" title="JS IPFS">
     <img src="https://ipfs.io/ipfs/Qme6KJdKcp85TYbLxuLV7oQzMiLremD7HMoXLZEmgo6Rnh/js-ipfs-sticker.png" alt="IPFS in JavaScript logo" width="244" />
   </a>
 </p>
 
-<h3 align="center">The JavaScript implementation of the IPFS protocol</h3>
+<h3 align="center">IPFS 协议的 JavaScript 实现</h3>
 
 <p align="center">
   <a href="https://riot.im/app/#/room/#ipfs-dev:matrix.org"><img src="https://img.shields.io/badge/matrix-%23ipfs%3Amatrix.org-blue.svg?style=flat" /> </a>
@@ -21,37 +20,35 @@
   <br>
 </p>
 
-> **Upgrading from <=0.40 to 0.48?** See the [release notes](https://github.com/ipfs/js-ipfs/issues/2656) for the list of API changes and the [migration guide](https://github.com/ipfs/js-ipfs/tree/master/docs/MIGRATION-TO-ASYNC-AWAIT.md).
+> **自 <=0.40 to 0.48? 升级** 参考 [发行说明](https://github.com/ipfs/js-ipfs/issues/2656) 以获取 API 变化及 [迁移指南](https://github.com/ipfs/js-ipfs/tree/master/docs/MIGRATION-TO-ASYNC-AWAIT.md).
 
-We've come a long way, but this project is still in Alpha, lots of development is happening, APIs might change, beware of 🐉..
+尽管我们进行了长期开发，我们依旧处于开发预览版，有许多开发正在进行，API 也可能变化，我们提防着 🐉..
 
-## Getting started
+## 入门
 
-* Read the [docs](https://github.com/ipfs/js-ipfs/tree/master/docs)
-* Ensure CORS is [correctly configured](https://github.com/ipfs/js-ipfs/blob/master/docs/CORS.md) for use with the HTTP client
-* Look into the [examples](https://github.com/ipfs-examples/js-ipfs-examples/tree/master) to learn how to spawn an IPFS node in Node.js and in the Browser
-* Consult the [Core API docs](https://github.com/ipfs/js-ipfs/tree/master/docs/core-api) to see what you can do with an IPFS node
-* Head over to https://proto.school to take the [IPFS course](https://proto.school/course/ipfs) that covers core IPFS concepts and JS APIs
-* Check out https://docs.ipfs.io for [glossary](https://docs.ipfs.io/concepts/glossary), tips, how-tos and more
-* See https://blog.ipfs.io for news and more
-* Need help? Please ask 'How do I?' questions on https://discuss.ipfs.io
+* 阅读 [文档-中文](./docs-zh)
+* 确保 HTTP 客户端的 CORS [正确配置](./docs-zh/CORS.md)
+* 参考 [案例](https://github.com/ipfs-examples/js-ipfs-examples/tree/master) 学习如何在 Node.js & 浏览器开启一个 IPFS 节点
+* 参考 [核心 API 文档](/docs-zh/core-api) 了解你可以在 IPFS 节点进行的操作
+* 前往 https://proto.school 加入 [IPFS 课程](https://proto.school/course/ipfs) （覆盖了：核心 IPFS 概念和 JS APIs）
+* 前往 https://docs.ipfs.io 获取 [专业词汇](https://docs.ipfs.io/concepts/glossary)、提示、指南及更多其他内容
+* 前往 https://blog.ipfs.io 获取更多动态
+* 需要帮助？勇敢前往 https://discuss.ipfs.io 提问 
 
-## Table of Contents <!-- omit in toc -->
+## 内容目录 <!-- omit in toc -->
 
-- [Getting started](#getting-started)
-  - [Install as a CLI user](#install-as-a-cli-user)
-  - [Install as an application developer](#install-as-an-application-developer)
-- [Documentation](#documentation)
-- [Structure](#structure)
+- [入门](#入门)
+  - [命令行形式安装](#命令行形式安装)
+  - [应用形式安装](#应用形式安装)
+- [文档](#文档)
+- [结构](#结构)
 - [Packages](#packages)
 - [Want to hack on IPFS?](#want-to-hack-on-ipfs)
 - [License](#license)
 
-## Getting Started <!-- omit in toc -->
+### 命令行形式安装
 
-### Install as a CLI user
-
-Installing `ipfs` globally will give you the `jsipfs` command which you can use to start a daemon running:
+全局安装 `ipfs` ，你将可以使用 `jsipfs` 命令开启 IPFS 服务:
 
 ```console
 $ npm install -g ipfs
@@ -61,25 +58,25 @@ js-ipfs version: x.x.x
 System version: x64/darwin
 Node.js version: x.x.x
 Swarm listening on /ip4/127.0
-.... more output
+.... 更多信息
 ```
 
-You can then add a file:
+你能添加一个文件:
 
 ```console
 $ jsipfs add ./hello-world.txt
 added QmXXY5ZxbtuYj6DnfApLiGstzPN7fvSyigrRee3hDWPCaf hello-world.txt
 ```
 
-### Install as an application developer
+### 应用形式安装
 
-If you do not need to run a command line daemon, use the `ipfs-core` package - it has all the features of `ipfs` but in a lighter package:
+如果你不需要命令行服务，可以使用 `ipfs-core` 包——它包含所有 `ipfs` 功能，但更精简：
 
 ```console
 $ npm install ipfs-core
 ```
 
-Then start a node in your app:
+在你的应用中使用：
 
 ```javascript
 import * as IPFS from 'ipfs-core'
@@ -90,32 +87,32 @@ console.info(cid)
 // QmXXY5ZxbtuYj6DnfApLiGstzPN7fvSyigrRee3hDWPCaf
 ```
 
-## Documentation
+## 文档
 
-* [Concepts](https://docs.ipfs.io/concepts/)
-* [Config](./docs/CONFIG.md)
-* [Core API](./docs/core-api)
-* [Examples](https://github.com/ipfs-examples/js-ipfs-examples/tree/master/examples)
-* [Development](./docs/DEVELOPMENT.md)
+* [概念](https://docs.ipfs.io/concepts/)
+* [配置](./docs-zh/CONFIG.md)
+* [核心 API](./docs-zh/core-api)
+* [案例](https://github.com/ipfs-examples/js-ipfs-examples/tree/master/examples)
+* [开发](./docs-zh/DEVELOPMENT.md)
 
-## Structure
+## 结构
 
-This project is broken into several modules, their purposes are:
+这个项目分为了多个模块，他们分别是：
 
-* [`/packages/interface-ipfs-core`](./packages/interface-ipfs-core) Tests to ensure adherence of an implementation to the spec
-* [`/packages/ipfs`](./packages/ipfs) An aggregator module that bundles the core implementation, the CLI, HTTP API server and daemon
-* [`/packages/ipfs-cli`](./packages/ipfs-cli) A CLI to the core implementation
-* [`/packages/ipfs-core`](./packages/ipfs-core) The core implementation
-* [`/packages/ipfs-core-types`](./packages/ipfs-core-types) Typescript definitions for the core API
-* [`/packages/ipfs-core-utils`](./packages/ipfs-core-utils) Helpers and utilities common to core and the HTTP RPC API client
-* [`/packages/ipfs-daemon`](./packages/ipfs-daemon) Run js-IPFS as a background daemon
-* [`/packages/ipfs-grpc-client`](./packages/ipfs-grpc-client) A gRPC client for js-IPFS
-* [`/packages/ipfs-grpc-protocol`](./packages/ipfs-grpc-protocol) Shared module between the gRPC client and server
-* [`/packages/ipfs-grpc-server`](./packages/ipfs-grpc-server) A gRPC-over-websockets server for js-IPFS
-* [`/packages/ipfs-http-client`](./packages/ipfs-http-client) A client for the RPC-over-HTTP API presented by both js-ipfs and go-ipfs
-* [`/packages/ipfs-http-server`](./packages/ipfs-http-server) JS implementation of the [IPFS RPC HTTP API](https://docs.ipfs.io/reference/http/api/)
-* [`/packages/ipfs-http-gateway`](./packages/ipfs-http-gateway) JS implementation of the [IPFS HTTP Gateway](https://docs.ipfs.io/concepts/ipfs-gateway/)
-* [`/packages/ipfs-http-response`](./packages/ipfs-http-response) Creates a HTTP response for a given IPFS Path
+* [`/packages/interface-ipfs-core`](./packages/interface-ipfs-core) 测试套件 & 接口，用于确保实现符合规范(Tests to ensure adherence of an implementation to the spec)
+* [`/packages/ipfs`](./packages/ipfs) 聚合器模块，包含了核心实现、命令行、HTTP API 进程与服务(An aggregator module that bundles the core implementation, the CLI, HTTP API server and daemon)
+* [`/packages/ipfs-cli`](./packages/ipfs-cli) 命令行形式的核心实现(A CLI to the core implementation)
+* [`/packages/ipfs-core`](./packages/ipfs-core) 核心实现(The core implementation)
+* [`/packages/ipfs-core-types`](./packages/ipfs-core-types) 核心 API 的 Typescript 定义(Typescript definitions for the core API)
+* [`/packages/ipfs-core-utils`](./packages/ipfs-core-utils) core / HTTP RPC API 客户端的共用函数方法(Helpers and utilities common to core and the HTTP RPC API client)
+* [`/packages/ipfs-daemon`](./packages/ipfs-daemon) 后台服务(Run js-IPFS as a background daemon)
+* [`/packages/ipfs-grpc-client`](./packages/ipfs-grpc-client) gRPC 服务(A gRPC client for js-IPFS)
+* [`/packages/ipfs-grpc-protocol`](./packages/ipfs-grpc-protocol) 共用模块(Shared module between the gRPC client and server)
+* [`/packages/ipfs-grpc-server`](./packages/ipfs-grpc-server) websockets 通道的 gRPC(A gRPC-over-websockets server for js-IPFS)
+* [`/packages/ipfs-http-client`](./packages/ipfs-http-client) http 通道的 gRPC(A client for the RPC-over-HTTP API presented by both js-ipfs and go-ipfs)
+* [`/packages/ipfs-http-server`](./packages/ipfs-http-server) JS 实现的 [IPFS RPC HTTP API](https://docs.ipfs.io/reference/http/api/)
+* [`/packages/ipfs-http-gateway`](./packages/ipfs-http-gateway) JS 实现的 [IPFS HTTP Gateway](https://docs.ipfs.io/concepts/ipfs-gateway/)
+* [`/packages/ipfs-http-response`](./packages/ipfs-http-response) 为给定 IPFS 提供 HTTP 响应(Creates a HTTP response for a given IPFS Path)
 * [`/packages/ipfs-message-port-client`](./packages/ipfs-message-port-client) A client for the RPC-over-message-port API presented by js-ipfs running in a shared worker
 * [`/packages/ipfs-message-port-protocol`](./packages/ipfs-message-port-protocol) Code shared by the message port client & server
 * [`/packages/ipfs-message-port-server`](./packages/ipfs-message-port-server) The server that receives requests from ipfs-message-port-client
